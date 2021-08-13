@@ -1,12 +1,17 @@
 <h1><%= @list.name  %></h1>
 
-<ul>
+<div class="cards">
   <% @list.bookmarks.each do |r| %>
-    <li> <%= r.movie.title %> </li>
-    <li> <%= r.comment %> </li>
-    <%= link_to "Delete", bookmark_path %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src= <%= r.movie.poster_url %> alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= r.movie.title %></h5>
+        <p class="card-text"><%=r.movie.overview%></p>
+        <%= link_to "Delete", bookmark_path(r), method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <div>
 <%= link_to "New Movie", new_list_bookmark_path(@list) %>

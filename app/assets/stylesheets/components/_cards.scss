@@ -19,6 +19,14 @@
   grid-gap: 16px;
 }
 
+.cards a {
+  color: white;
+}
+
+.cards a:hover {
+  color: white;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
