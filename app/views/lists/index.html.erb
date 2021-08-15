@@ -1,19 +1,54 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="https://github.com/lewagon/rails-watch-list/blob/master/app/assets/images/popcorn.png?raw=true" />
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.radiofrance.fr/s3/cruiser-production/2020/12/5b5a3d8d-9654-4ebb-9a99-5f8e6169c6c6/838_gettyimages-108387402.jpg);">
-  <div class="container">
-    <h1>Save any kind of movies!</h1>
-    <p>My Lists.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">My lists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">New list</a>
+      </li>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i1.sndcdn.com/avatars-000339165974-uahw28-t500x500.jpg" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">My profile</a>
+          <a class="dropdown-item" href="#">Log out</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 
-<div class="cards">
-  <% @lists.each do |r| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.hebergementwebs.com/image/6b/6bfb4757a70c784e02a7ced504d50780.jpg/av1-presentation-du-nouveau-codec-video-standard-pour-le-web-1.jpg)">
-    <%= link_to r.name, list_path(r) %>
+
+
+<div class="banner mb-4 d-flex align-items-center justify-content-center" >
+  <div class="text-center text-white">
+    <h1>MOVIETHEQUE</h1>
+    <h3 class="typed-js"></h3>
   </div>
-  <% end %>
 </div>
 
-
-<div><%= link_to "Add list", new_list_path %></div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists</h3>
+    <div><%= link_to 'Create a movie list', new_list_path, class: 'btn btn-flat btn-sm' %></div>
+  </div>
+  <div class="cards row">
+    <% @lists.each do |r| %>
+    <div classe="co-12 colsm-6 col-md-4 mb-3">
+      <% if r.photo.attached? %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path r.photo.key %>)">
+            <%= link_to r.name, list_path(r) %>
+          </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

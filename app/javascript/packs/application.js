@@ -16,3 +16,10 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener('turbolinks:load', () => {
+  initSelect2();
+  initTyped();
+  AOS.init();
+  initStarRating();
+});

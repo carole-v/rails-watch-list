@@ -13,10 +13,11 @@
 }
 
 .cards {
-  margin: 32px;
+  margin: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+
 }
 
 .cards a {
@@ -25,7 +26,14 @@
 
 .cards a:hover {
   color: white;
+  text-decoration: none;
 }
+
+.img-list {
+  background-size: cover;
+  margin: auto;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
